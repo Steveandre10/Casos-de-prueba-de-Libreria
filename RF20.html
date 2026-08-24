@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria (Panel de KPIs)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria (Panel de KPIs)</h1>
+
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define los casos de prueba y el ambiente de pruebas para la funcionalidad de un panel de control con KPIs en tiempo real. El sistema deberá mostrar métricas clave como ventas diarias, productos más vendidos y tickets abiertos, permitiendo al administrador tomar decisiones rápidas y basadas en datos.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0305</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá ofrecer un panel de control con KPIs en tiempo real (ventas diarias, productos más vendidos, tickets abiertos, etc.). Se verificará que los datos se actualicen dinámicamente y que las métricas reflejen la información real del sistema.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará la capacidad del sistema con millones de registros simultáneos.</li>
+                <li><strong>Integración con BI externo:</strong> No se probará la exportación de KPIs hacia herramientas externas como Power BI o Tableau.</li>
+                <li><strong>Predicciones:</strong> No se evaluarán algoritmos predictivos, solo métricas actuales.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que los KPIs se muestren correctamente en el panel.</li>
+                <li><strong>Prueba de actualización:</strong> Validar que los datos cambien en tiempo real tras nuevas ventas o tickets.</li>
+                <li><strong>Prueba de validación:</strong> Comparar los KPIs con los registros reales de la base de datos.</li>
+                <li><strong>Prueba exploratoria:</strong> Navegar por el panel y verificar consistencia de métricas.</li>
+                <li><strong>Cross-browser testing:</strong> Validar visualización en Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing:</strong> Comprobar que el panel sea accesible desde dispositivos móviles.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, con la versión más reciente del código.</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <table>
+                <tr>
+                    <th>Usuarios internos</th>
+                    <td>Administrador</td>
+                </tr>
+                <tr>
+                    <th>Ventas</th>
+                    <td>Transacciones registradas en el sistema</td>
+                </tr>
+                <tr>
+                    <th>Productos</th>
+                    <td>Libros disponibles en el catálogo</td>
+                </tr>
+                <tr>
+                    <th>Tickets</th>
+                    <td>Solicitudes abiertas en el sistema de soporte</td>
+                </tr>
+                <tr>
+                    <th>KPIs</th>
+                    <td>Ventas diarias, productos más vendidos, tickets abiertos</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>Los KPIs no se actualizan en tiempo real</td>
+                    <td>Alta</td>
+                    <td>Alto</td>
+                    <td>Validar la actualización automática tras cada transacción.</td>
+                </tr>
+                <tr>
+                    <td>Los datos mostrados son incorrectos</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar KPIs con registros de base de datos.</td>
+                </tr>
+                <tr>
+                    <td>El panel no carga en dispositivos móviles</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas de compatibilidad móvil.</td>
+                </tr>
+                <tr>
+                    <td>Errores de visualización en navegadores</td>
+                    <td>Baja</td>
+                    <td>Medio</td>
+                    <td>Probar en Chrome, Edge y Firefox.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Jair - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>

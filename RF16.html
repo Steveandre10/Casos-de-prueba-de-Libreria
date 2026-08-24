@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de pruebas y el ambiente de pruebas para la funcionalidad de configuración básica del sistema. El sistema deberá permitir al administrador ajustar opciones básicas, como los métodos de pago y envío, verificando que las configuraciones se puedan crear, modificar y aplicar correctamente.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0301</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al administrador ajustar opciones básicas del sistema, como métodos de pago y envío. Se verificará que el administrador pueda consultar, modificar y guardar estas configuraciones correctamente y que los cambios se apliquen de acuerdo con las opciones seleccionadas.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará el comportamiento de las configuraciones bajo una cantidad elevada de cambios o usuarios simultáneos.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración ni análisis especializado de vulnerabilidades sobre las opciones de configuración.</li>
+                <li><strong>Integración con proveedores externos:</strong> No se evaluará en profundidad el funcionamiento interno de las plataformas externas de pago o empresas de envío.</li>
+                <li><strong>Procesamiento de pagos y envíos:</strong> No se evaluará en profundidad la operación completa de las transacciones o entregas, ya que la prueba se concentra en la configuración de sus opciones básicas.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Pruebas ágiles / funcionales basadas en historias de usuario + exploración:</strong> Verificar que el administrador pueda ajustar las opciones básicas de métodos de pago y envío correctamente.</li>
+                <li><strong>Prueba de validación:</strong> Comprobar que las opciones seleccionadas sean válidas y que los cambios se almacenen correctamente.</li>
+                <li><strong>Prueba de métodos de pago:</strong> Verificar que el administrador pueda habilitar, deshabilitar o modificar los métodos de pago disponibles en el sistema.</li>
+                <li><strong>Prueba de métodos de envío:</strong> Verificar que el administrador pueda configurar las opciones de envío disponibles y sus parámetros básicos.</li>
+                <li><strong>Prueba de aplicación de configuración:</strong> Comprobar que los cambios realizados por el administrador se reflejen correctamente en las opciones disponibles para los usuarios.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar la configuración de métodos de pago y envío utilizando diferentes navegadores como Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar que el administrador pueda ajustar estas opciones desde un dispositivo móvil mediante la emulación de Chrome.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Administrador</th>
+                    <td>Usuario con rol de administrador y permisos para ajustar las opciones básicas del sistema.</td>
+                </tr>
+                <tr>
+                    <th>Configuración actual</th>
+                    <td>Opciones de métodos de pago y envío actualmente configuradas en el sistema.</td>
+                </tr>
+                <tr>
+                    <th>Métodos de pago</th>
+                    <td>Opciones de pago disponibles para ser habilitadas, deshabilitadas o ajustadas por el administrador.</td>
+                </tr>
+                <tr>
+                    <th>Métodos de envío</th>
+                    <td>Opciones de envío disponibles para ser configuradas por el administrador.</td>
+                </tr>
+                <tr>
+                    <th>Parámetros de configuración</th>
+                    <td>Datos básicos asociados a los métodos de pago y envío que podrán ser ajustados por el administrador.</td>
+                </tr>
+                <tr>
+                    <th>Configuración modificada</th>
+                    <td>Valores actualizados por el administrador para validar que los cambios se almacenen correctamente.</td>
+                </tr>
+                <tr>
+                    <th>Estado de las opciones</th>
+                    <td>Estado habilitado o deshabilitado de los métodos de pago y envío configurados.</td>
+                </tr>
+                <tr>
+                    <th>Resultado esperado</th>
+                    <td>Configuración guardada correctamente y aplicada en las opciones correspondientes del sistema.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>El administrador no puede modificar las opciones de pago</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Verificar los permisos del administrador y realizar pruebas con diferentes métodos de pago.</td>
+                </tr>
+                <tr>
+                    <td>La configuración de los métodos de envío no se actualiza correctamente</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Modificar diferentes opciones de envío y comprobar que los cambios se almacenen correctamente.</td>
+                </tr>
+                <tr>
+                    <td>Los cambios de configuración no se aplican correctamente</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Guardar diferentes configuraciones y verificar que las opciones modificadas se reflejen correctamente en el sistema.</td>
+                </tr>
+                <tr>
+                    <td>Se permiten configuraciones con datos inválidos</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar pruebas con valores vacíos, inválidos o incompletos y verificar las validaciones del sistema.</td>
+                </tr>
+                <tr>
+                    <td>Se modifica una opción de configuración incorrecta</td>
+                    <td>Bajo</td>
+                    <td>Alto</td>
+                    <td>Verificar la opción seleccionada y los valores ingresados antes de guardar los cambios.</td>
+                    
+
+                </tr>
+                <tr>
+                    <td>La configuración presenta errores en dispositivos moviles</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas de configuración utilizando diferentes tamaños de pantalla y emulación móvil.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Jair - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>
