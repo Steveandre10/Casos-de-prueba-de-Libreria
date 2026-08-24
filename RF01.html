@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de pruebas y el ambiente de pruebas para la funcionalidad de visualización y descarga de factura electrónica. El sistema deberá permitir al usuario consultar la factura generdada después de realizar una compra y descargarla para conservarla como comprobante de la transacción.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0101</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al usuario visualizar y descargar la factura electrónica generada después de realizar una compra. Se verificara que la factura corresponda al pedido realizado y que pueda ser consultada y descargada correctamente.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará el comportamiento de la descarga de facturas bajo una cantidad elevada de usuarios simultáneos.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetracion ni análisis especializado de seguridad sobre los archivos descargados.</li>
+                <li><strong>Modificacion de facturas:</strong> No se probará la edición o modificación del contenido de una factura generada.</li>
+                <li><strong>Procesamiento de pagos:</strong> El proceso de pago no será evaluado en profundidad, ya que la prueba se concentra en la visualizacion y descarga de la factura psoterior a la compra</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Pruebas ágiles / funcionales basadas en historias de usuario + exploración:</strong> Verificar que el sistema permite visualizar y descargar la factura después de una compra existosa. </li>
+                <li><strong>Prueba de validación:</strong> Comprobar que los datos mostrados en la factura correspondan al pedido realizado.</li>
+                <li><strong>Prueba de descarga:</strong> Verificar que el archivo de la factura pueda descargarse correctamente y pueda abrirse sin errores.</li>
+                <li><strong>Prueba exploratoria:</strong> Realizar diferentes compras y consultar sus respectivas facturas para identificar posibles errores.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar la visualización y descarga de la factura utilizando diferentes navegadores como Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar que el usuario pueda acceder y descargar la factura desde un dispositivo móvil mediante la emulación de Chrome.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Usuarios</th>
+                    <td>Usuario registrado y con sesión iniciada.</td>
+                </tr>
+                <tr>
+                    <th>Correo electronico</th>
+                    <td>Correo válido asociado a la cuenta de usuario.</td>
+                </tr>
+                <tr>
+                    <th>Producto</th>
+                    <td>Libro disponible en el catálogo.</td>
+                </tr>
+                <tr>
+                    <th>Cantidad</th>
+                    <td>Una o más unidades del producto.</td>
+                </tr>
+                <tr>
+                    <th>Pedido</th>
+                    <td>Pedido confirmado y asociado al usuario</td>
+                </tr>
+                <tr>
+                    <th>Número de pedido</th>
+                    <td>Identificador válido generado por el sistema</td>
+                </tr>
+                <tr>
+                    <th>Factura</th>
+                    <td>Factura electrónica generada después de confirmar la compra.</td>
+                </tr>
+                <tr>
+                    <th>Valor de compra</th>
+                    <td>Archivo generado por el sistema para su visualizacion y descarga.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>La factura no se genera después de completar la compra</td>
+                    <td>Media</td>
+                    <td>alto</td>
+                    <td>Verificar la generación de la factura después de cada compra realizada duarante las pruebas.</td>
+                </tr>
+                <tr>
+                    <td>La factura muestra información incorrecta del pedido</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar los datos de la factura con la informacion registrada en el pedido.</td>
+                </tr>
+                <tr>
+                    <td>La factura no puede descargarse</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar pruebas de descarga en diferentes navegadores y verificar que el archivo se genere correctamente.</td>
+                </tr>
+                <tr>
+                    <td>El archivo descargado presenta errores al abrirse </td>
+                    <td>Bajo</td>
+                    <td>Medio</td>
+                    <td>Abrir los archivos descargados y verificar que su contenido sea legible y completo.</td>
+                </tr>
+                <tr>
+                    <td>La factura no corresponde al pedido seleccionado</td>
+                    <td>Bajo</td>
+                    <td>Alto</td>
+                    <td>Comparar el número de pedido, productos y valor de la factura con la información de la compra.</td>
+                    
+
+                </tr>
+                <tr>
+                    <td>La visualización de la factura presenta errores en dispositivos moviles</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas utilizando diferentes tamaños de pantalla y emulación móvil</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Steven - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados. <a href="www.linkedin.com/in/steven-andres-vergara-borja-85450437b"><b>eis</b></a></p>
+        </div>
+    </div>
+</body>
+
+</html>
