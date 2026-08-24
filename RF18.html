@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de pruebas y el ambiente de pruebas para la funcionalidad de supervisión y auditoría de la actividad del sistema mediante logs y reportes de uso. El sistema deberá permitir al administrador consultar los registros de actividad y generar reportes que faciliten el seguimiento, control y auditoría de las operaciones realizadas en la plataforma.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0303</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al administrador supervisar y auditar la actividad del sistema mediante logs y reportes de uso. Se verificará que los registros de actividad se generen correctamente y que el administrador pueda consultarlos y utilizar los reportes para identificar y revisar las operaciones realizadas en la plataforma.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará el comportamiento de los logs y reportes bajo una cantidad elevada de actividades o usuarios simultáneos.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración ni análisis especializado de vulnerabilidades sobre el sistema de auditoría.</li>
+                <li><strong>Modificación de logs:</strong> No se probará la edición, alteración o eliminación manual de los registros de actividad generados por el sistema.</li>
+                <li><strong>Procesamiento de pagos:</strong> El proceso de pago no será evaluado en profundidad, ya que la prueba se concentra en la generación, consulta y auditoría de los logs y reportes de uso.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Pruebas ágiles / funcionales basadas en historias de usuario + exploración:</strong> Verificar que el sistema registre las actividades relevantes y permita al administrador supervisarlas mediante los logs y reportes de uso.</li>
+                <li><strong>Prueba de validación:</strong> Comprobar que los logs contengan información correcta de la actividad realizada, como usuario, acción, fecha y hora, cuando corresponda.</li>
+                <li><strong>Prueba de generación de reportes:</strong> Verificar que el administrador pueda consultar y generar reportes de uso a partir de la información registrada por el sistema.</li>
+                <li><strong>Prueba de auditoría:</strong> Realizar diferentes acciones en la plataforma y comprobar que queden registradas correctamente para su posterior revisión.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar la consulta de logs y reportes utilizando diferentes navegadores como Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar que el administrador pueda consultar los registros y reportes desde un dispositivo móvil mediante la emulación de Chrome.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Administrador</th>
+                    <td>Usuario con rol de administrador y permisos para consultar logs y reportes de uso.</td>
+                </tr>
+                <tr>
+                    <th>Usuario de prueba</th>
+                    <td>Usuario que realizará diferentes acciones en la plataforma para generar actividad en los logs.</td>
+                </tr>
+                <tr>
+                    <th>Actividad del sistema</th>
+                    <td>Acciones realizadas por usuarios, como inicio de sesión, consultas, compras y otras operaciones registradas.</td>
+                </tr>
+                <tr>
+                    <th>Logs</th>
+                    <td>Registros generados por el sistema con información de las actividades realizadas.</td>
+                </tr>
+                <tr>
+                    <th>Reporte de uso</th>
+                    <td>Información consolidada sobre la actividad y uso de la plataforma.</td>
+                </tr>
+                <tr>
+                    <th>Fecha y hora</th>
+                    <td>Datos utilizados para verificar el momento en que se registraron las actividades.</td>
+                </tr>
+                <tr>
+                    <th>Acciones registradas</th>
+                    <td>Conjunto de operaciones realizadas por los usuarios durante las pruebas.</td>
+                </tr>
+                <tr>
+                    <th>Filtros de consulta</th>
+                    <td>Criterios disponibles para consultar los logs y reportes, como usuario, fecha o tipo de actividad.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>Las actividades no quedan registradas en los logs</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar diferentes acciones y verificar que cada actividad esperada quede registrada correctamente.</td>
+                </tr>
+                <tr>
+                    <td>Los logs contienen información incorrecta o incompleta</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar los registros generados con las acciones realizadas y verificar usuario, acción, fecha y hora.</td>
+                </tr>
+                <tr>
+                    <td>El administrador no puede consultar los logs</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Verificar los permisos del administrador y realizar consultas de registros en diferentes navegadores.</td>
+                </tr>
+                <tr>
+                    <td>Los reportes de uso no se generan correctamente</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Generar reportes con diferentes rangos de fechas y criterios de consulta y verificar que la información sea correcta.</td>
+                </tr>
+                <tr>
+                    <td>Los reportes muestran información que no corresponde a los logs</td>
+                    <td>Bajo</td>
+                    <td>Alto</td>
+                    <td>Comparar la información de los reportes con los registros de actividad almacenados en los logs.</td>
+                    
+
+                </tr>
+                <tr>
+                    <td>La consulta de logs y reportes presenta errores en dispositivos moviles</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas utilizando diferentes tamaños de pantalla y emulación móvil.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Jair - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>

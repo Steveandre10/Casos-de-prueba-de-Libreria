@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria (Reportes Estadísticos)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria (Reportes Estadísticos)</h1>
+
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define los casos de prueba y el ambiente de pruebas para la funcionalidad de reportes estadísticos. El sistema deberá permitir al administrador acceder a reportes sobre ventas, facturación e inventario, garantizando que los datos sean precisos y actualizados.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0306</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al administrador acceder a reportes estadísticos sobre ventas, facturación e inventario. Se verificará que los reportes se generen correctamente, que los datos correspondan a la información registrada en el sistema y que puedan exportarse en formatos estándar.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará la generación de reportes con millones de registros simultáneos.</li>
+                <li><strong>Integración externa:</strong> No se probará la exportación hacia sistemas externos de BI.</li>
+                <li><strong>Predicciones:</strong> No se evaluarán algoritmos predictivos, solo reportes actuales.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que los reportes se generen correctamente.</li>
+                <li><strong>Prueba de validación:</strong> Comparar los datos de los reportes con la base de datos.</li>
+                <li><strong>Prueba de exportación:</strong> Validar que los reportes puedan descargarse en formatos estándar (PDF, Excel).</li>
+                <li><strong>Prueba exploratoria:</strong> Generar diferentes reportes y verificar consistencia.</li>
+                <li><strong>Cross-browser testing:</strong> Validar visualización en Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing:</strong> Comprobar que los reportes sean accesibles desde dispositivos móviles.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, con la versión más reciente del código.</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <table>
+                <tr>
+                    <th>Usuarios internos</th>
+                    <td>Administrador</td>
+                </tr>
+                <tr>
+                    <th>Ventas</th>
+                    <td>Transacciones registradas en el sistema</td>
+                </tr>
+                <tr>
+                    <th>Facturación</th>
+                    <td>Facturas generadas por las compras</td>
+                </tr>
+                <tr>
+                    <th>Inventario</th>
+                    <td>Libros disponibles y su cantidad</td>
+                </tr>
+                <tr>
+                    <th>Reportes</th>
+                    <td>Ventas diarias, facturación acumulada, inventario actualizado</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>Los reportes muestran datos incorrectos</td>
+                    <td>Alta</td>
+                    <td>Alto</td>
+                    <td>Comparar reportes con registros de base de datos.</td>
+                </tr>
+                <tr>
+                    <td>Los reportes no se generan</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Validar generación en diferentes escenarios.</td>
+                </tr>
+                <tr>
+                    <td>Error al exportar reportes</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Probar exportación en PDF y Excel.</td>
+                </tr>
+                <tr>
+                    <td>El panel de reportes no carga en móviles</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas de compatibilidad móvil.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Jair - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>

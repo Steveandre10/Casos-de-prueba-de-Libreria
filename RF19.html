@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - Libreria (Roles y Permisos)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria (Roles y Permisos)</h1>
+
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define los casos de prueba y el ambiente de pruebas para la funcionalidad de gestión de roles y permisos personalizados. El sistema deberá permitir al administrador crear, asignar y modificar roles internos, garantizando que cada usuario tenga acceso únicamente a las funciones autorizadas según su perfil.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0304</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al administrador definir roles y permisos personalizados para distintos tipos de usuarios internos (ejemplo: administrador, gestor de inventario, soporte, auditor). Se verificará que los permisos asignados se reflejen correctamente en las funcionalidades disponibles para cada rol.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará el comportamiento del sistema con miles de usuarios simultáneos.</li>
+                <li><strong>Pruebas de seguridad avanzada:</strong> No se realizarán pruebas de penetración ni auditorías externas.</li>
+                <li><strong>Integración con sistemas externos:</strong> No se probará la sincronización de roles con aplicaciones de terceros.</li>
+                <li><strong>Gestión de usuarios externos:</strong> Este requerimiento se centra únicamente en usuarios internos.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que el administrador pueda crear, editar y eliminar roles.</li>
+                <li><strong>Prueba de validación:</strong> Comprobar que los permisos asignados se reflejen en las funcionalidades disponibles.</li>
+                <li><strong>Prueba de restricción:</strong> Intentar acceder a funciones no autorizadas con un rol limitado.</li>
+                <li><strong>Prueba exploratoria:</strong> Crear diferentes combinaciones de roles y permisos para identificar inconsistencias.</li>
+                <li><strong>Cross-browser testing:</strong> Validar la gestión de roles en Chrome, Edge y Firefox.</li>
+                <li><strong>Cross mobile testing:</strong> Comprobar que la administración de roles sea accesible desde dispositivos móviles.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, con la versión más reciente del código.</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <table>
+                <tr>
+                    <th>Usuarios internos</th>
+                    <td>Administrador, Gestor de inventario, Auditor, Soporte</td>
+                </tr>
+                <tr>
+                    <th>Credenciales</th>
+                    <td>Correo válido y contraseña asociada</td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>Definidos por el administrador en el sistema</td>
+                </tr>
+                <tr>
+                    <th>Permisos</th>
+                    <td>Acceso a módulos específicos (ejemplo: catálogo, facturación, reportes)</td>
+                </tr>
+                <tr>
+                    <th>Acciones restringidas</th>
+                    <td>Funciones bloqueadas según el rol asignado</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>El administrador no puede crear un nuevo rol</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Validar la creación de roles en diferentes escenarios.</td>
+                </tr>
+                <tr>
+                    <td>Los permisos asignados no se reflejan correctamente</td>
+                    <td>Alta</td>
+                    <td>Alto</td>
+                    <td>Probar cada rol con casos de uso específicos.</td>
+                </tr>
+                <tr>
+                    <td>Un usuario accede a funciones no autorizadas</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar pruebas de restricción y validación de accesos.</td>
+                </tr>
+                <tr>
+                    <td>Error al modificar roles existentes</td>
+                    <td>Baja</td>
+                    <td>Medio</td>
+                    <td>Verificar la edición y actualización de roles en pruebas repetidas.</td>
+                </tr>
+                <tr>
+                    <td>La interfaz no muestra correctamente los permisos</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Probar en diferentes navegadores y dispositivos.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+           <p>Jair - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>
