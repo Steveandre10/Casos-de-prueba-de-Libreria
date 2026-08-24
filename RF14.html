@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - RF14: Consulta del inventario en tiempo real.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de prueba y el ambiente de pruebas para la funcionalidad de **consulta del
+                inventario en tiempo real**. El sistema deberá permitir al encargado de inventario consultar las
+                existencias actuales de los libros y visualizar los cambios realizados sobre el stock de manera
+                actualizada.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#1401</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al encargado de inventario consultar el inventario en tiempo real. Se
+                        verificará que las existencias mostradas correspondan con el stock actual registrado y que los
+                        cambios realizados sean reflejados correctamente.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará el comportamiento con una cantidad masiva de
+                    consultas simultáneas.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración.</li>
+                <li><strong>Registro de nuevos libros:</strong> No se evaluará la creación de nuevos productos, ya que
+                    corresponde al RF13.</li>
+                <li><strong>Configuración de alertas:</strong> No se evaluará la configuración de niveles mínimos,
+                    correspondiente al RF11.</li>
+                <li><strong>Generación de reportes:</strong> No se evaluará la generación de reportes de movimientos,
+                    correspondiente al RF8.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que el inventario pueda consultarse correctamente.</li>
+                <li><strong>Prueba de actualización:</strong> Comprobar que los cambios de stock se reflejen
+                    correctamente.</li>
+                <li><strong>Prueba de validación:</strong> Comparar las existencias mostradas con los registros de
+                    inventario.</li>
+                <li><strong>Prueba de escenarios:</strong> Realizar entradas y salidas de diferentes libros.</li>
+                <li><strong>Prueba de consistencia:</strong> Verificar que el stock mostrado después de cada movimiento
+                    sea correcto.</li>
+                <li><strong>Prueba exploratoria:</strong> Realizar diferentes movimientos y consultas consecutivas.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar el funcionamiento en Chrome,
+                    Firefox y Edge.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar la consulta mediante
+                    dispositivos móviles o emulación móvil.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más
+                reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <td>Usuario registrado con permisos para consultar inventario.</td>
+                </tr>
+                <tr>
+                    <th>Libro</th>
+                    <td>Libro registrado en el inventario.</td>
+                </tr>
+                <tr>
+                    <th>Código del libro</th>
+                    <td>Identificador válido del libro.</td>
+                </tr>
+                <tr>
+                    <th>Stock inicial</th>
+                    <td>Cantidad de unidades disponible antes del movimiento.</td>
+                </tr>
+                <tr>
+                    <th>Movimiento de entrada</th>
+                    <td>Cantidad de unidades agregadas al inventario.</td>
+                </tr>
+                <tr>
+                    <th>Movimiento de salida</th>
+                    <td>Cantidad de unidades retiradas del inventario.</td>
+                </tr>
+                <tr>
+                    <th>Stock esperado</th>
+                    <td>Cantidad que debería mostrar el sistema después del movimiento.</td>
+                </tr>
+                <tr>
+                    <th>Stock mostrado</th>
+                    <td>Cantidad visualizada en el inventario después de la actualización.</td>
+                </tr>
+                <tr>
+                    <th>Fecha y hora de consulta</th>
+                    <td>Momento en que se verifica la información actualizada.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>El inventario no se actualiza después de un movimiento</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar diferentes entradas y salidas y consultar nuevamente el inventario.</td>
+                </tr>
+                <tr>
+                    <td>El stock mostrado es incorrecto</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar el valor mostrado con el stock esperado.</td>
+                </tr>
+                <tr>
+                    <td>Existe retraso en la actualización</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar movimientos y verificar inmediatamente la información mostrada.</td>
+                </tr>
+                <tr>
+                    <td>El sistema muestra información desactualizada</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Actualizar o volver a consultar el inventario después de cada movimiento.</td>
+                </tr>
+                <tr>
+                    <td>Las cantidades de diferentes libros se mezclan</td>
+                    <td>Baja</td>
+                    <td>Alto</td>
+                    <td>Realizar movimientos sobre varios libros y verificar cada registro individualmente.</td>
+                </tr>
+                <tr>
+                    <td>El inventario no coincide con los movimientos registrados</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar el historial de movimientos con las existencias actuales.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+            <p>Steven Vergara - Ingeniero de software</p>
+            <p>Jair Alfonso - Ingeniero de software</p>
+            <p>Valeria Restrepo - Ingeniero de software</p>
+            <p>Luis Boada - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados. <a
+                    href="www.linkedin.com/in/steven-andres-vergara-borja-85450437b"><b>eis</b></a></p>
+        </div>
+    </div>
+</body>
+
+</html>

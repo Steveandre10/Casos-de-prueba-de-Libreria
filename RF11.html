@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - RF11: Configuración de alertas automáticas por niveles mínimos.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de prueba y el ambiente de pruebas para la funcionalidad de **configuración de alertas automáticas de inventario**. El sistema deberá permitir al encargado de inventario establecer niveles mínimos personalizados para cada libro, a partir de los cuales se generarán alertas automáticas.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#1101</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al encargado de inventario configurar alertas automáticas por niveles mínimos personalizados para cada libro. Se verificará que los niveles puedan configurarse y que las alertas se generen de acuerdo con el valor establecido para cada producto.</td>
+                </tr>
+            </table>
+
+            
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará la configuración masiva de alertas.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración.</li>
+                <li><strong>Reposición de inventario:</strong> No se evaluará la compra o ingreso de nuevos productos.</li>
+                <li><strong>Generación de reportes:</strong> No se evaluará la generación de reportes de inventario.</li>
+                <li><strong>Notificaciones externas:</strong> No se evaluarán servicios externos de mensajería.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que se pueda configurar un nivel mínimo por libro.</li>
+                <li><strong>Prueba de validación:</strong> Comprobar que el valor configurado sea almacenado correctamente.</li>
+                <li><strong>Prueba de límites:</strong> Probar valores mínimos, valores altos y valores no válidos.</li>
+                <li><strong>Prueba de escenarios:</strong> Configurar diferentes niveles para diferentes libros.</li>
+                <li><strong>Prueba de alertas:</strong> Verificar que cada libro genere alertas según su propio nivel.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar el funcionamiento en Chrome, Firefox y Edge.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar el funcionamiento mediante dispositivos móviles o emulación móvil.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <td>Usuario con permisos para gestionar inventario.</td>
+                </tr>
+                <tr>
+                    <th>Libro</th>
+                    <td>Libro seleccionado para configurar la alerta.</td>
+                </tr>
+                <tr>
+                    <th>Stock actual</th>
+                    <td>Cantidad actual de unidades disponibles.</td>
+                </tr>
+                <tr>
+                    <th>Nivel mínimo</th>
+                    <td>Valor personalizado establecido para generar la alerta.</td>
+                </tr>
+                <tr>
+                    <th>Nuevo nivel mínimo</th>
+                    <td>Valor utilizado para comprobar la actualización de la configuración.</td>
+                </tr>
+                <tr>
+                    <th>Movimiento</th>
+                    <td>Operación utilizada para disminuir el stock.</td>
+                </tr>
+                <tr>
+                    <th>Stock resultante</th>
+                    <td>Existencias después del movimiento.</td>
+                </tr>
+                <tr>
+                    <th>Alerta</th>
+                    <td>Notificación generada al alcanzar el nivel mínimo.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>El sistema no permite configurar el nivel mínimo</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Probar diferentes libros y valores.</td>
+                </tr>
+                <tr>
+                    <td>El nivel configurado no se guarda</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Consultar nuevamente la configuración después de guardarla.</td>
+                </tr>
+                <tr>
+                    <td>La alerta utiliza un valor incorrecto</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar el nivel configurado con el momento en que se genera la alerta.</td>
+                </tr>
+                <tr>
+                    <td>Un libro utiliza el nivel de otro libro</td>
+                    <td>Baja</td>
+                    <td>Alto</td>
+                    <td>Configurar valores diferentes para varios libros y comprobar las alertas.</td>
+                </tr>
+                <tr>
+                    <td>Se aceptan valores inválidos</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Probar valores negativos, vacíos o formatos incorrectos.</td>
+                </tr>
+                <tr>
+                    <td>La actualización del nivel no tiene efecto</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Modificar el nivel y realizar nuevamente movimientos de inventario.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+            <p>Steven Vergara - Ingeniero de software</p>
+            <p>Jair Alfonso - Ingeniero de software</p>
+            <p>Valeria Restrepo - Ingeniero de software</p>
+            <p>Luis Boada - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados. <a href="www.linkedin.com/in/steven-andres-vergara-borja-85450437b"><b>eis</b></a></p>
+        </div>
+    </div>
+</body>
+
+</html>
