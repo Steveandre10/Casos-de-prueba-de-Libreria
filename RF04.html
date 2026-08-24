@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - RF4: Generación de notas crédito o débito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de prueba y el ambiente de pruebas para la funcionalidad de generación de notas crédito o débito. El sistema deberá generar automáticamente el documento correspondiente cuando una solicitud de devolución sea aprobada, de acuerdo con el tipo de ajuste que corresponda a la transacción.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0401</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá generar automáticamente notas crédito o débito según las solicitudes de devolución aprobadas. Se verificará que, después de aprobar una devolución, el sistema genere el documento correspondiente y lo relacione correctamente con la factura original.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará la generación de un gran número de notas simultáneamente.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración sobre el módulo de devoluciones o facturación.</li>
+                <li><strong>Modificación manual de documentos:</strong> No se evaluará la edición manual de una nota crédito o débito después de su generación.</li>
+                <li><strong>Proceso de pago:</strong> No se evaluará el funcionamiento de los métodos de pago utilizados originalmente en la compra.</li>
+                <li><strong>Facturación electrónica externa:</strong> No se evaluará en profundidad la comunicación con sistemas gubernamentales, ya que corresponde al RF5.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que el sistema genere la nota correspondiente después de aprobar una devolución.</li>
+                <li><strong>Prueba de validación:</strong> Comprobar que los datos de la nota coincidan con la factura y la devolución aprobada.</li>
+                <li><strong>Prueba de integración:</strong> Verificar la relación entre la devolución, la factura original y la nota generada.</li>
+                <li><strong>Prueba de escenarios:</strong> Realizar pruebas con diferentes tipos de devoluciones para comprobar la generación del documento correspondiente.</li>
+                <li><strong>Prueba exploratoria:</strong> Realizar devoluciones con diferentes productos y cantidades para identificar posibles errores.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar el funcionamiento en Chrome, Firefox y Edge.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar el acceso y funcionamiento del proceso en dispositivos móviles mediante la emulación de Chrome.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <td>Usuario registrado con permisos para gestionar devoluciones.</td>
+                </tr>
+                <tr>
+                    <th>Pedido</th>
+                    <td>Pedido confirmado y asociado a una factura.</td>
+                </tr>
+                <tr>
+                    <th>Número de pedido</th>
+                    <td>Identificador válido del pedido.</td>
+                </tr>
+                <tr>
+                    <th>Factura</th>
+                    <td>Factura electrónica asociada al pedido.</td>
+                </tr>
+                <tr>
+                    <th>Producto</th>
+                    <td>Libro incluido en la factura y susceptible de devolución.</td>
+                </tr>
+                <tr>
+                    <th>Cantidad</th>
+                    <td>Cantidad de productos que serán devueltos.</td>
+                </tr>
+                <tr>
+                    <th>Motivo de devolución</th>
+                    <td>Motivo registrado para solicitar la devolución.</td>
+                </tr>
+                <tr>
+                    <th>Solicitud de devolución</th>
+                    <td>Solicitud creada y pendiente de aprobación.</td>
+                </tr>
+                <tr>
+                    <th>Estado de devolución</th>
+                    <td>Aprobada para comprobar la generación automática del documento.</td>
+                </tr>
+                <tr>
+                    <th>Documento generado</th>
+                    <td>Nota crédito o débito asociada a la factura original.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>La nota no se genera después de aprobar la devolución</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar diferentes pruebas de devolución y verificar la generación automática del documento.</td>
+                </tr>
+                <tr>
+                    <td>Se genera un documento incorrecto</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Validar que el tipo de nota generado corresponda al ajuste realizado.</td>
+                </tr>
+                <tr>
+                    <td>La nota contiene información incorrecta</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar los datos de la nota con la factura original y la solicitud de devolución.</td>
+                </tr>
+                <tr>
+                    <td>La nota no queda relacionada con la factura original</td>
+                    <td>Baja</td>
+                    <td>Alto</td>
+                    <td>Verificar la relación entre ambos documentos mediante sus identificadores.</td>
+                </tr>
+                <tr>
+                    <td>El sistema genera una nota sin que la devolución haya sido aprobada</td>
+                    <td>Baja</td>
+                    <td>Alto</td>
+                    <td>Comprobar que las solicitudes pendientes o rechazadas no generen documentos automáticamente.</td>
+                </tr>
+                <tr>
+                    <td>Los valores de la nota no coinciden con la devolución</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar cantidades y valores registrados en la devolución con los valores del documento generado.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+            <p>Steven Vergara - Ingeniero de software</p>
+            <p>Jair Alfonso - Ingeniero de software</p>
+            <p>Valeria Restrepo - Ingeniero de software</p>
+            <p>Luis Boada  - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados. <a href="www.linkedin.com/in/steven-andres-vergara-borja-85450437b"><b>eis</b></a></p>
+        </div>
+    </div>
+</body>
+
+</html>

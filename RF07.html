@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Prueba - RF7: Búsqueda de facturas utilizando criterios simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #006747;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #006747;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            background-color: #006747;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            margin: 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #006747;
+            color: white;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #006747;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Espacio para el logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        /* Sección para los realizadores */
+        .realizadores {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .realizadores p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Espacio para el logo de la empresa -->
+        <div class="logo">
+            <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo de la empresa">
+        </div>
+
+        <h1>Casos de Prueba - Libreria</h1>
+
+        <!-- Sección de Introducción -->
+        <div class="section">
+            <h2 class="section-title">1. Introducción</h2>
+            <p>
+                Este documento define el caso de prueba y el ambiente de pruebas para la funcionalidad de búsqueda de
+                facturas utilizando criterios simples. El sistema deberá permitir al encargado de facturación localizar
+                facturas de manera rápida mediante criterios como la fecha o el número de pedido.
+            </p>
+        </div>
+
+        <!-- Sección de Alcance de las Pruebas -->
+        <div class="section">
+            <h2 class="section-title">2. Alcance de las pruebas (Qué se va a probar)</h2>
+            <table>
+                <tr>
+                    <th>a. Código del Ticket</th>
+                    <td>#0701</td>
+                </tr>
+                <tr>
+                    <th>b. Descripción de la historia</th>
+                    <td>El sistema deberá permitir al encargado buscar facturas utilizando criterios simples como fecha
+                        o número de pedido. Se verificará que el sistema permita realizar búsquedas utilizando estos
+                        criterios y que presente correctamente las facturas que coincidan con la información ingresada.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Fuera de Alcance -->
+        <div class="section">
+            <h2 class="section-title">3. Fuera de Alcance</h2>
+            <ul>
+                <li><strong>Pruebas de rendimiento:</strong> No se evaluará la búsqueda sobre una cantidad masiva de
+                    facturas.</li>
+                <li><strong>Pruebas de seguridad:</strong> No se realizarán pruebas de penetración sobre el módulo de
+                    facturación.</li>
+                <li><strong>Modificación de facturas:</strong> No se evaluará la edición de las facturas encontradas.
+                </li>
+                <li><strong>Generación de facturas:</strong> No se evaluará la creación de nuevas facturas, ya que el
+                    objetivo es únicamente realizar búsquedas.</li>
+                <li><strong>Reportes de transacciones:</strong> No se evaluará la generación de reportes históricos, ya
+                    que corresponde al RF6.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Tipos de Prueba -->
+        <div class="section">
+            <h2 class="section-title">4. Tipos de prueba / Estrategia (Cómo ejecutar las pruebas)</h2>
+            <ul>
+                <li><strong>Prueba funcional:</strong> Verificar que el sistema permita realizar búsquedas de facturas.
+                </li>
+                <li><strong>Prueba de validación:</strong> Comprobar que las facturas encontradas correspondan
+                    exactamente con los criterios utilizados.</li>
+                <li><strong>Prueba de filtros:</strong> Realizar búsquedas utilizando fecha y número de pedido.</li>
+                <li><strong>Prueba de escenarios:</strong> Utilizar facturas existentes, inexistentes y criterios
+                    inválidos.</li>
+                <li><strong>Prueba exploratoria:</strong> Realizar búsquedas con diferentes combinaciones y formatos de
+                    datos para identificar errores.</li>
+                <li><strong>Cross-browser testing (Múltiples browsers):</strong> Verificar el funcionamiento en Chrome,
+                    Firefox y Edge.</li>
+                <li><strong>Cross mobile testing (Emulado con Chrome):</strong> Comprobar el acceso y funcionamiento
+                    mediante dispositivos móviles o emulación móvil.</li>
+            </ul>
+        </div>
+
+        <!-- Sección de Ambiente de prueba -->
+        <div class="section">
+            <h2 class="section-title">5. Ambiente de prueba</h2>
+            <p>La prueba se realizará en un ambiente aislado de producción, donde se implementará la versión más
+                reciente del código. La URL para las pruebas será la siguiente:</p>
+            <p><strong><a href="https://fispe.online/" class="button">Acceder al Ambiente de Pruebas</a></strong></p>
+        </div>
+
+        <!-- Sección de Datos de Pruebas -->
+        <div class="section">
+            <h2 class="section-title">6. Datos de pruebas</h2>
+            <p>Los datos utilizados para las pruebas serán los siguientes:</p>
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <td>Usuario registrado con permisos para consultar facturas.</td>
+                </tr>
+                <tr>
+                    <th>Número de pedido</th>
+                    <td>Número válido de un pedido asociado a una factura.</td>
+                </tr>
+                <tr>
+                    <th>Factura</th>
+                    <td>Factura previamente generada y registrada en el sistema.</td>
+                </tr>
+                <tr>
+                    <th>Fecha de factura</th>
+                    <td>Fecha válida correspondiente a una factura existente.</td>
+                </tr>
+                <tr>
+                    <th>Criterio de búsqueda</th>
+                    <td>Fecha o número de pedido utilizado para localizar la factura.</td>
+                </tr>
+                <tr>
+                    <th>Factura inexistente</th>
+                    <td>Número de pedido o fecha que no tenga facturas asociadas.</td>
+                </tr>
+                <tr>
+                    <th>Resultado de búsqueda</th>
+                    <td>Factura o conjunto de facturas que coincidan con el criterio ingresado.</td>
+                </tr>
+                <tr>
+                    <th>Estado de factura</th>
+                    <td>Estado actual de la factura encontrada.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Riesgos -->
+        <div class="section">
+            <h2 class="section-title">7. Riesgos</h2>
+            <table>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Probabilidad</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+                <tr>
+                    <td>El sistema no encuentra una factura existente</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Realizar búsquedas utilizando diferentes fechas y números de pedido válidos.</td>
+                </tr>
+                <tr>
+                    <td>El sistema muestra facturas que no coinciden con el criterio</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar los resultados con la información registrada en la base de datos.</td>
+                </tr>
+                <tr>
+                    <td>El número de pedido no permite encontrar la factura asociada</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Verificar la relación entre el pedido y la factura.</td>
+                </tr>
+                <tr>
+                    <td>La búsqueda por fecha presenta resultados incorrectos</td>
+                    <td>Media</td>
+                    <td>Medio</td>
+                    <td>Realizar pruebas con diferentes fechas y verificar los resultados.</td>
+                </tr>
+                <tr>
+                    <td>El sistema no informa cuando no existen resultados</td>
+                    <td>Baja</td>
+                    <td>Medio</td>
+                    <td>Realizar búsquedas con datos inexistentes y verificar el mensaje mostrado.</td>
+                </tr>
+                <tr>
+                    <td>El sistema presenta resultados incompletos</td>
+                    <td>Media</td>
+                    <td>Alto</td>
+                    <td>Comparar los resultados obtenidos con las facturas registradas para el criterio utilizado.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Sección de Realizadores -->
+        <div class="realizadores">
+            <p><strong>Realizadores:</strong></p>
+            <p>Steven Vergara - Ingeniero de software</p>
+            <p>Jair Alfonso - Ingeniero de software</p>
+            <p>Valeria Restrepo - Ingeniero de software</p>
+            <p>Luis Boada - Ingeniero de software</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Proyecto Libreria. Todos los derechos reservados. <a
+                    href="www.linkedin.com/in/steven-andres-vergara-borja-85450437b"><b>eis</b></a></p>
+        </div>
+    </div>
+</body>
+
+</html>
